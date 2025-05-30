@@ -15,13 +15,13 @@ Welcome to the Sorting Visualizer — a powerful and interactive tool built with
 📘 Learn the logic behind each algorithm with in-app explanations
 
 # 🧠 Algorithms Included
-## Algorithm	Description
-### ⚡ Quick Sort	A divide-and-conquer algorithm that picks a pivot and partitions the array
-### 🌊 Merge Sort	Recursively splits the array and merges them in sorted order
-### 🧱 Heap Sort	Uses a binary heap structure to sort elements
-### 🔁 Bubble Sort	Compares and swaps adjacent elements until sorted
-### 📥 Insertion Sort	Builds the final sorted array one item at a time
-### 📤 Selection Sort	Repeatedly selects the smallest element and moves it to the front
+## Algorithm	      Description
+⚡ Quick Sort	      A divide-and-conquer algorithm that picks a pivot and partitions the array
+🌊 Merge Sort	      Recursively splits the array and merges them in sorted order
+🧱 Heap Sort	      Uses a binary heap structure to sort elements
+🔁 Bubble Sort	    Compares and swaps adjacent elements until sorted
+📥 Insertion Sort	  Builds the final sorted array one item at a time
+📤 Selection Sort	  Repeatedly selects the smallest element and moves it to the front
 
 ## Each algorithm comes with:
 
@@ -32,11 +32,11 @@ Welcome to the Sorting Visualizer — a powerful and interactive tool built with
 🎞️ Animated step-by-step sorting
 
 ## 🛠️ Built With
-### ⚛️ ReactJS
+⚛️ ReactJS
 
-### 🎨 CSS Modules for styling
+🎨 CSS Modules for styling
 
-### 📦 JavaScript for algorithm implementation
+📦 JavaScript for algorithm implementation
 
 ## 🚀 Getting Started
 ### 🔧 Installation
@@ -54,13 +54,13 @@ You’re all set to visualize the magic! 🎉
 ## 🎯 Learning Objectives
 ### This app is designed to help you:
 
-### Understand how sorting algorithms work step-by-step
+Understand how sorting algorithms work step-by-step
 
-### Visualize time complexity in action
+Visualize time complexity in action
 
-### Explore differences between algorithms based on input type and size
+Explore differences between algorithms based on input type and size
 
-### Improve your grasp on data structures, recursion, and optimization
+Improve your grasp on data structures, recursion, and optimization
 
 ## 🙌 Contributing
 Contributions are welcome! Feel free to fork this repo and submit a pull request to add more features or improve the visualizations. 💡
