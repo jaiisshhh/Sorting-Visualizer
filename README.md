@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+# 📊 Sorting Visualizer
+Welcome to the Sorting Visualizer — a powerful and interactive tool built with ReactJS to help you see how popular sorting algorithms work! Whether you're a student, developer, or curious mind, this app offers a visual way to understand and compare the behavior and efficiency of different sorting techniques. 🎓💡
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## ✨ Features
+### 🔁 Interactive Visualizations of sorting algorithms
 
-## Available Scripts
+### 🚀 Speed control to slow down or speed up the animations
 
-In the project directory, you can run:
+### 🔄 Shuffle button to generate new random arrays
 
-### `npm start`
+### 🔍 Step-by-step animation of sorting process
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 📱 Responsive design for all devices
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 📘 Learn the logic behind each algorithm with in-app explanations
 
-### `npm test`
+# 🧠 Algorithms Included
+## Algorithm	Description
+### ⚡ Quick Sort	A divide-and-conquer algorithm that picks a pivot and partitions the array
+### 🌊 Merge Sort	Recursively splits the array and merges them in sorted order
+### 🧱 Heap Sort	Uses a binary heap structure to sort elements
+### 🔁 Bubble Sort	Compares and swaps adjacent elements until sorted
+### 📥 Insertion Sort	Builds the final sorted array one item at a time
+### 📤 Selection Sort	Repeatedly selects the smallest element and moves it to the front
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Each algorithm comes with:
 
-### `npm run build`
+📚 A brief explanation of how it works
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+⏱️ Time and space complexity info
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+🎞️ Animated step-by-step sorting
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🛠️ Built With
+### ⚛️ ReactJS
 
-### `npm run eject`
+### 🎨 CSS Modules for styling
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 📦 JavaScript for algorithm implementation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🚀 Getting Started
+### 🔧 Installation
+bash
+Copy
+Edit
+git clone https://github.com/yourusername/sorting-visualizer.git
+cd sorting-visualizer
+npm install
+npm start
+### 🌐 Open in Browser
+Navigate to: http://localhost:3000
+You’re all set to visualize the magic! 🎉
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🎯 Learning Objectives
+### This app is designed to help you:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Understand how sorting algorithms work step-by-step
 
-## Learn More
+### Visualize time complexity in action
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Explore differences between algorithms based on input type and size
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Improve your grasp on data structures, recursion, and optimization
 
-### Code Splitting
+## 🙌 Contributing
+Contributions are welcome! Feel free to fork this repo and submit a pull request to add more features or improve the visualizations. 💡
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 📄 License
+This project is open source and available under the MIT License.
 
-### Analyzing the Bundle Size
+## 🌟 Support & Feedback
+If you like this project, give it a ⭐!
+Have suggestions or issues? Feel free to open an issue or connect with me.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Happy Sorting! 🧮✨
