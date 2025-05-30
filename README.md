@@ -2,17 +2,17 @@
 Welcome to the Sorting Visualizer — a powerful and interactive tool built with ReactJS to help you see how popular sorting algorithms work! Whether you're a student, developer, or curious mind, this app offers a visual way to understand and compare the behavior and efficiency of different sorting techniques. 🎓💡
 
 ## ✨ Features
-### 🔁 Interactive Visualizations of sorting algorithms
+🔁 Interactive Visualizations of sorting algorithms
 
-### 🚀 Speed control to slow down or speed up the animations
+🚀 Speed control to slow down or speed up the animations
 
-### 🔄 Shuffle button to generate new random arrays
+🔄 Shuffle button to generate new random arrays
 
-### 🔍 Step-by-step animation of sorting process
+🔍 Step-by-step animation of sorting process
 
-### 📱 Responsive design for all devices
+📱 Responsive design for all devices
 
-### 📘 Learn the logic behind each algorithm with in-app explanations
+📘 Learn the logic behind each algorithm with in-app explanations
 
 # 🧠 Algorithms Included
 ## Algorithm	Description
