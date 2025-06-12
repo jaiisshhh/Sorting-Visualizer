@@ -584,7 +584,7 @@ export default class SortingVisualizer extends React.Component {
       mergeSort: {
         name: "Merge Sort",
         description:
-          "Merge Sort is a divide-and-conquer algorithm that splits the array into halves, sorts each half, and merges them back together.",
+          "Merge Sort is a Divide and Conquer algorithm. It divides the input array into halves, sorts each half, and then merges them to produce the sorted result.",
         steps: [
           "Divide the array into two halves.",
           "Recursively sort each half.",
@@ -785,7 +785,7 @@ export default class SortingVisualizer extends React.Component {
                 className="modal-close"
                 onClick={() => this.setState({ showModal: false })}
               >
-                Close
+                ×
               </button>
             </div>
           </div>

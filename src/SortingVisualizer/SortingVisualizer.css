@@ -124,22 +124,23 @@
   background: #fbf9f7;
   padding: 20px;
   border-radius: 10px;
-  width: 400px;
-  text-align: center;
+  width: 800px;
+  text-align: left;
   color: #4a443c;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 .modal-close {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #cc7a56;
-  color: #f7f5f2;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  background: none;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
-  margin-top: 10px;
-  transition: background-color 0.3s ease;
+  color: #4a443c;
 }
 
 .modal-close:hover {
