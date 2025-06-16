@@ -59,7 +59,7 @@ npm start
 
 ### 🌐 Open in Browser
 
-Navigate to: http://localhost:3000
+Navigate to: https://sortviz-visualizer.vercel.app/
 You’re all set to visualize the magic! 🎉
 
 ## 🎯 Learning Objectives
