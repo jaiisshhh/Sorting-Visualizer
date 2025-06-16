@@ -18,7 +18,8 @@ export default class SortingVisualizer extends React.Component {
       array: [],
       arrayMaxValue: 730,
       selectedAlgorithm: "mergeSort",
-      showModal: false,
+      showIntroModal: true, // for the welcome popup
+      showLearnModal: false, // for the Learn algorithm details
       sorting: false,
       arraySize: 75,
       animationSpeed: 50,
@@ -46,6 +47,14 @@ export default class SortingVisualizer extends React.Component {
       }
     });
   }
+
+  closeIntroModal = () => {
+    this.setState({ showIntroModal: false });
+  };
+
+  closeLearnModal = () => {
+    this.setState({ showLearnModal: false });
+  };
 
   handleSort() {
     this.setState({ sorting: true }, () => {
@@ -578,7 +587,7 @@ export default class SortingVisualizer extends React.Component {
   }
 
   render() {
-    const { array, selectedAlgorithm, showModal, sorting } = this.state;
+    const { array, selectedAlgorithm, sorting } = this.state;
 
     const algorithmDetails = {
       mergeSort: {
@@ -590,6 +599,12 @@ export default class SortingVisualizer extends React.Component {
           "Recursively sort each half.",
           "Merge the two sorted halves back together.",
         ],
+        complexity: {
+          best: "Ω(n log n)",
+          average: "Θ(n log n)",
+          worst: "O(n log n)",
+          space: "O(n)",
+        },
       },
       quickSort: {
         name: "Quick Sort",
@@ -600,6 +615,12 @@ export default class SortingVisualizer extends React.Component {
           "Rearrange elements such that elements less than the pivot are on the left and greater are on the right.",
           "Recursively sort the left and right partitions.",
         ],
+        complexity: {
+          best: "Ω(n log n)",
+          average: "Θ(n log n)",
+          worst: "O(n²)",
+          space: "O(log n)",
+        },
       },
       heapSort: {
         name: "Heap Sort",
@@ -611,6 +632,12 @@ export default class SortingVisualizer extends React.Component {
           "Reduce the heap size and heapify the root.",
           "Repeat until the heap size is 1.",
         ],
+        complexity: {
+          best: "Ω(n log n)",
+          average: "Θ(n log n)",
+          worst: "O(n log n)",
+          space: "O(1)",
+        },
       },
       bubbleSort: {
         name: "Bubble Sort",
@@ -622,6 +649,12 @@ export default class SortingVisualizer extends React.Component {
           "Swap them if they are in the wrong order.",
           "Repeat until the array is sorted.",
         ],
+        complexity: {
+          best: "Ω(n)",
+          average: "Θ(n²)",
+          worst: "O(n²)",
+          space: "O(1)",
+        },
       },
       insertionSort: {
         name: "Insertion Sort",
@@ -632,6 +665,12 @@ export default class SortingVisualizer extends React.Component {
           "Compare it with elements before and insert it into the correct position.",
           "Repeat for all elements.",
         ],
+        complexity: {
+          best: "Ω(n)",
+          average: "Θ(n²)",
+          worst: "O(n²)",
+          space: "O(1)",
+        },
       },
       selectionSort: {
         name: "Selection Sort",
@@ -643,164 +682,195 @@ export default class SortingVisualizer extends React.Component {
           "Swap it with the current element.",
           "Repeat for all elements.",
         ],
+        complexity: {
+          best: "Ω(n²)",
+          average: "Θ(n²)",
+          worst: "O(n²)",
+          space: "O(1)",
+        },
       },
     };
 
     const selectedDetails = algorithmDetails[selectedAlgorithm];
 
     return (
-      <div>
-        <nav className="navbar">
-          <div className="navbar-logo">SORTING VISUALiZER</div>
-          <select
-            className="dropdown"
-            value={selectedAlgorithm}
-            onChange={(e) =>
-              this.setState({ selectedAlgorithm: e.target.value })
-            }
-            disabled={sorting}
-          >
-            <option value="mergeSort">Merge Sort</option>
-            <option value="quickSort">Quick Sort</option>
-            <option value="heapSort">Heap Sort</option>
-            <option value="bubbleSort">Bubble Sort</option>
-            <option value="insertionSort">Insertion Sort</option>
-            <option value="selectionSort">Selection Sort</option>
-          </select>
-          <button
-            className="navbar-button"
-            onClick={() => this.resetArray()}
-            disabled={sorting}
-          >
-            Generate New Array
-          </button>
-          <button
-            className="navbar-button"
-            onClick={() => this.handleSort()}
-            disabled={sorting}
-          >
-            Sort
-          </button>
-          <button
-            className="navbar-button"
-            onClick={() => this.setState({ showModal: true })}
-            disabled={sorting}
-          >
-            Learn
-          </button>
-          <button
-            className="navbar-button"
-            onClick={() =>
-              this.setState({ showAdjustments: !this.state.showAdjustments })
-            }
-            disabled={sorting}
-          >
-            Adjust
-          </button>
+      <>
+        {this.state.showIntroModal && (
+          <div className="modal">
+            <div className="modal-content welcome-modal">
+              <button className="modal-close" onClick={this.closeIntroModal}>
+                &times;
+              </button>
+              <h2>Welcome to Sorting Visualizer!</h2>
+              <p>
+                This interactive tool helps you understand sorting algorithms
+                through animations.
+              </p>
+              <h3>Features:</h3>
+              <ul>
+                <li>Visualize Bubble, Selection, Merge, Quick Sort and more</li>
+                <li>Adjust array size and animation speed</li>
+                <li>Step-by-step comparisons and swaps</li>
+                <li>Interactive and beginner-friendly</li>
+              </ul>
+              <p>Click the ❌ button to start exploring!</p>
+            </div>
+          </div>
+        )}
+        <div>
+          <nav className="navbar">
+            <div className="navbar-logo">SORTING VISUALiZER</div>
+            <select
+              className="dropdown"
+              value={selectedAlgorithm}
+              onChange={(e) =>
+                this.setState({ selectedAlgorithm: e.target.value })
+              }
+              disabled={sorting}
+            >
+              <option value="mergeSort">Merge Sort</option>
+              <option value="quickSort">Quick Sort</option>
+              <option value="heapSort">Heap Sort</option>
+              <option value="bubbleSort">Bubble Sort</option>
+              <option value="insertionSort">Insertion Sort</option>
+              <option value="selectionSort">Selection Sort</option>
+            </select>
+            <button
+              className="navbar-button"
+              onClick={() => this.resetArray()}
+              disabled={sorting}
+            >
+              Generate New Array
+            </button>
+            <button
+              className="navbar-button"
+              onClick={() => this.handleSort()}
+              disabled={sorting}
+            >
+              Sort
+            </button>
+            <button
+              className="navbar-button"
+              onClick={() => this.setState({ showLearnModal: true })}
+              disabled={sorting}
+            >
+              Learn
+            </button>
+            <button
+              className="navbar-button"
+              onClick={() =>
+                this.setState({ showAdjustments: !this.state.showAdjustments })
+              }
+              disabled={sorting}
+            >
+              Adjust
+            </button>
 
-          {this.state.showAdjustments && (
-            <div className="slider-container">
-              <label>
-                Array Size
-                <input
-                  type="range"
-                  min="10"
-                  max="310"
-                  value={this.state.arraySize}
-                  disabled={sorting}
-                  onChange={(e) =>
-                    this.setState({ arraySize: Number(e.target.value) }, () =>
-                      this.resetArray()
-                    )
-                  }
-                />
-              </label>
-              <label>
-                Speed
-                <input
-                  type="range"
-                  min="1"
-                  max="5"
-                  value={this.state.speedLevel}
-                  disabled={sorting}
-                  onChange={(e) => {
-                    const speedMap = {
-                      1: 100,
-                      2: 75,
-                      3: 50,
-                      4: 25,
-                      5: 10,
-                    };
-                    const selectedLevel = Number(e.target.value);
-                    this.setState({
-                      speedLevel: selectedLevel,
-                      animationSpeed: speedMap[selectedLevel],
-                    });
-                  }}
-                />
-              </label>
+            {this.state.showAdjustments && (
+              <div className="slider-container">
+                <label>
+                  Array Size
+                  <input
+                    type="range"
+                    min="10"
+                    max="310"
+                    value={this.state.arraySize}
+                    disabled={sorting}
+                    onChange={(e) =>
+                      this.setState({ arraySize: Number(e.target.value) }, () =>
+                        this.resetArray()
+                      )
+                    }
+                  />
+                </label>
+                <label>
+                  Speed
+                  <input
+                    type="range"
+                    min="1"
+                    max="5"
+                    value={this.state.speedLevel}
+                    disabled={sorting}
+                    onChange={(e) => {
+                      const speedMap = {
+                        1: 100,
+                        2: 75,
+                        3: 50,
+                        4: 25,
+                        5: 10,
+                      };
+                      const selectedLevel = Number(e.target.value);
+                      this.setState({
+                        speedLevel: selectedLevel,
+                        animationSpeed: speedMap[selectedLevel],
+                      });
+                    }}
+                  />
+                </label>
+              </div>
+            )}
+          </nav>
+          <div className="array-container">
+            {(() => {
+              // Dynamic bar width and margin based on array size, revert to inline styles for bar sizing
+              const barWidth = Math.max(
+                2,
+                Math.floor(1000 / this.state.arraySize)
+              ); // dynamic width
+              const margin = 1;
+              // Use fixed max value for normalization to match animation scaling and animations
+              const fixedMaxValue = this.state.arrayMaxValue;
+              return array.map((value, idx) => {
+                // Always use value / fixedMaxValue * 95 for height, matching animation logic
+                const normalizedHeight = (value / fixedMaxValue) * 95;
+                return (
+                  <div
+                    className="array-bar"
+                    key={idx}
+                    style={{
+                      backgroundColor: PRIMARY_COLOR,
+                      height: `${normalizedHeight}%`,
+                      width: `${barWidth}px`,
+                      margin: `0 ${margin}px`,
+                      display: "inline-block",
+                    }}
+                  ></div>
+                );
+              });
+            })()}
+          </div>
+          {this.state.showLearnModal && (
+            <div className="modal">
+              <div className="modal-content">
+                <h2>{selectedDetails.name}</h2>
+                <p>{selectedDetails.description}</p>
+                <div className="complexity">
+                  <h4>Time & Space Complexity:</h4>
+                  <ul>
+                    <li>Best: {selectedDetails.complexity.best}</li>
+                    <li>Average: {selectedDetails.complexity.average}</li>
+                    <li>Worst: {selectedDetails.complexity.worst}</li>
+                    <li>Space: {selectedDetails.complexity.space}</li>
+                  </ul>
+                </div>
+                <button className="modal-close" onClick={this.closeLearnModal}>
+                  ×
+                </button>
+              </div>
             </div>
           )}
-        </nav>
-        <div className="array-container">
-          {(() => {
-            // Dynamic bar width and margin based on array size, revert to inline styles for bar sizing
-            const barWidth = Math.max(
-              2,
-              Math.floor(1000 / this.state.arraySize)
-            ); // dynamic width
-            const margin = 1;
-            // Use fixed max value for normalization to match animation scaling and animations
-            const fixedMaxValue = this.state.arrayMaxValue;
-            return array.map((value, idx) => {
-              // Always use value / fixedMaxValue * 95 for height, matching animation logic
-              const normalizedHeight = (value / fixedMaxValue) * 95;
-              return (
-                <div
-                  className="array-bar"
-                  key={idx}
-                  style={{
-                    backgroundColor: PRIMARY_COLOR,
-                    height: `${normalizedHeight}%`,
-                    width: `${barWidth}px`,
-                    margin: `0 ${margin}px`,
-                    display: "inline-block",
-                  }}
-                ></div>
-              );
-            });
-          })()}
-        </div>
-        {showModal && (
-          <div className="modal">
-            <div className="modal-content">
-              <h2>{selectedDetails.name}</h2>
-              <p>{selectedDetails.description}</p>
-              <ul>
-                {selectedDetails.steps.map((step, idx) => (
-                  <li key={idx}>{step}</li>
-                ))}
-              </ul>
-              <button
-                className="modal-close"
-                onClick={() => this.setState({ showModal: false })}
-              >
-                ×
+          {sorting && (
+            <div className="stop-button-container">
+              <button className="stop-button" onClick={() => this.handleStop()}>
+                STOP !
               </button>
             </div>
-          </div>
-        )}
-        {sorting && (
-          <div className="stop-button-container">
-            <button className="stop-button" onClick={() => this.handleStop()}>
-              STOP !
-            </button>
-          </div>
-        )}
-        <footer className="footer">
-          <p>&copy; Sorting Visualizer. All rights reserved.</p>
-        </footer>
-      </div>
+          )}
+          <footer className="footer">
+            <p>&copy; Sorting Visualizer. All rights reserved.</p>
+          </footer>
+        </div>
+      </>
     );
   }
 }
