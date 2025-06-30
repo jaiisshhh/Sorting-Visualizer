@@ -605,6 +605,7 @@ export default class SortingVisualizer extends React.Component {
           worst: "O(n log n)",
           space: "O(n)",
         },
+        link: "https://www.geeksforgeeks.org/dsa/merge-sort/",
       },
       quickSort: {
         name: "Quick Sort",
@@ -621,6 +622,7 @@ export default class SortingVisualizer extends React.Component {
           worst: "O(n²)",
           space: "O(log n)",
         },
+        link: "https://www.geeksforgeeks.org/dsa/quick-sort-algorithm/",
       },
       heapSort: {
         name: "Heap Sort",
@@ -638,6 +640,7 @@ export default class SortingVisualizer extends React.Component {
           worst: "O(n log n)",
           space: "O(1)",
         },
+        link: "https://www.geeksforgeeks.org/dsa/heap-sort/",
       },
       bubbleSort: {
         name: "Bubble Sort",
@@ -655,6 +658,7 @@ export default class SortingVisualizer extends React.Component {
           worst: "O(n²)",
           space: "O(1)",
         },
+        link: "https://www.geeksforgeeks.org/dsa/bubble-sort-algorithm/",
       },
       insertionSort: {
         name: "Insertion Sort",
@@ -671,6 +675,7 @@ export default class SortingVisualizer extends React.Component {
           worst: "O(n²)",
           space: "O(1)",
         },
+        link: "https://www.geeksforgeeks.org/dsa/insertion-sort-algorithm/",
       },
       selectionSort: {
         name: "Selection Sort",
@@ -688,6 +693,7 @@ export default class SortingVisualizer extends React.Component {
           worst: "O(n²)",
           space: "O(1)",
         },
+        link: "https://www.geeksforgeeks.org/dsa/selection-sort-algorithm-2/",
       },
     };
 
@@ -853,6 +859,19 @@ export default class SortingVisualizer extends React.Component {
                     <li>Space: {selectedDetails.complexity.space}</li>
                   </ul>
                 </div>
+                {selectedDetails.link && (
+                  <p style={{ marginTop: "1rem" }}>
+                    Want to learn in-depth? 🔗 {" "}
+                    <a
+                      href={selectedDetails.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: "#007bff", textDecoration: "underline" }}
+                    >
+                      Click here to learn more
+                    </a>
+                  </p>
+                )}
                 <button className="modal-close" onClick={this.closeLearnModal}>
                   ×
                 </button>

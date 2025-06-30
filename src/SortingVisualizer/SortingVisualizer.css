@@ -236,3 +236,14 @@
   padding-left: 0;
   line-height: 1.5;
 }
+
+.learn-more-link {
+  color: #007bff;
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.learn-more-link:hover {
+  color: #0056b3;
+}
