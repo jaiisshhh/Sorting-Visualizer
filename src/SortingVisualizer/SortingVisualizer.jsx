@@ -30,8 +30,21 @@ export default class SortingVisualizer extends React.Component {
   }
 
   componentDidMount() {
+    this.adjustArraySizeForScreen();
     this.resetArray();
+    window.addEventListener("resize", this.adjustArraySizeForScreen);
   }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.adjustArraySizeForScreen);
+  }
+
+  adjustArraySizeForScreen = () => {
+    let newSize = window.innerWidth < 768 ? 30 : 75;
+    if (this.state.arraySize !== newSize) {
+      this.setState({ arraySize: newSize }, this.resetArray);
+    }
+  };
 
   resetArray() {
     const array = [];
@@ -819,9 +832,10 @@ export default class SortingVisualizer extends React.Component {
           <div className="array-container">
             {(() => {
               // Dynamic bar width and margin based on array size, revert to inline styles for bar sizing
+              const screenWidth = window.innerWidth;
               const barWidth = Math.max(
                 2,
-                Math.floor(1000 / this.state.arraySize)
+                Math.floor((screenWidth - 60) / this.state.arraySize)
               ); // dynamic width
               const margin = 1;
               // Use fixed max value for normalization to match animation scaling and animations
@@ -861,7 +875,7 @@ export default class SortingVisualizer extends React.Component {
                 </div>
                 {selectedDetails.link && (
                   <p style={{ marginTop: "1rem" }}>
-                    Want to learn in-depth? 🔗 {" "}
+                    Want to learn in-depth? 🔗{" "}
                     <a
                       href={selectedDetails.link}
                       target="_blank"
