@@ -30,8 +30,10 @@ export default class SortingVisualizer extends React.Component {
   }
 
   componentDidMount() {
-    this.adjustArraySizeForScreen();
-    this.resetArray();
+    this.adjustArraySizeForScreen(); // might call resetArray inside
+    if (this.state.array.length === 0) {
+      this.resetArray(); // fallback in case array is still empty
+    }
     window.addEventListener("resize", this.adjustArraySizeForScreen);
   }
 
@@ -831,13 +833,6 @@ export default class SortingVisualizer extends React.Component {
           </nav>
           <div className="array-container">
             {(() => {
-              // Dynamic bar width and margin based on array size, revert to inline styles for bar sizing
-              const screenWidth = window.innerWidth;
-              const barWidth = Math.max(
-                2,
-                Math.floor((screenWidth - 60) / this.state.arraySize)
-              ); // dynamic width
-              const margin = 1;
               // Use fixed max value for normalization to match animation scaling and animations
               const fixedMaxValue = this.state.arrayMaxValue;
               return array.map((value, idx) => {
@@ -850,9 +845,6 @@ export default class SortingVisualizer extends React.Component {
                     style={{
                       backgroundColor: PRIMARY_COLOR,
                       height: `${normalizedHeight}%`,
-                      width: `${barWidth}px`,
-                      margin: `0 ${margin}px`,
-                      display: "inline-block",
                     }}
                   ></div>
                 );
